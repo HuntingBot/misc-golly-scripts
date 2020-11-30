@@ -6,17 +6,21 @@ g.setalgo("HashLife")
 g.autoupdate(True)
 
 def dfs(depth, current):
-	if depth == 15:
-		current.display("Single-Channel Recipe Search")
-		# Place block at the appropiate place
-		(block (g.getrect()[0]-11, g.getrect()[1]-10) + current).display("Single-Channel Recipe Search")
-		# Filter boring one-glider solutions out
-		if int(g.getpop()) == 9:
-			return
-		bread = g.getrect()[0] # old block x coordinate
-		sinkship = g.getrect()[1] # old block y coordinate
-		g.setstep(5)
-		g.step()
+	current.display("Single-Channel Recipe Search")
+	# Place block at the appropiate place
+	(block (g.getrect()[0]-11, g.getrect()[1]-10) + current).display("Single-Channel Recipe Search")
+	# Filter boring one-glider solutions out
+	if int(g.getpop()) == 9:
+		return
+	bread = g.getrect()[0] # old block x coordinate
+	sinkship = g.getrect()[1] # old block y coordinate
+	g.setstep(5)
+	g.step()
+	if g.empty():
+		# Use g.empty not g.getpop
+		# Big speedup
+		return
+	if depth == 20:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
 			g.reset()
@@ -26,3 +30,5 @@ def dfs(depth, current):
 	dfs(depth+1, vacuum + current[44]) # Assume the next glider is absent
 # dfs(0, glider)
 dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!"))
+
+# I suspect p44 is a deadend
