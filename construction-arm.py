@@ -20,7 +20,9 @@ def dfs(depth, current):
 		# Use g.empty not g.getpop
 		# Big speedup
 		return
-	if depth == 20:
+	if g.getrect()[0] - bread > 100 or g.getrect()[1] - sinkship > 100:
+		return # Sorry
+	if depth == 22:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
 			g.reset()
