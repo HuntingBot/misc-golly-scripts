@@ -25,7 +25,7 @@ def interesting(current):
 		return False # 
 	return True
 	
-def dfs(depth, current):
+def dfs(depth, current, actual_depth):
 	if depth == 22:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
