@@ -5,7 +5,7 @@ vacuum = pattern("")
 g.setalgo("HashLife")
 g.autoupdate(True)
 
-def dfs(depth, current):
+def interesting(current):
 	current.display("Single-Channel Recipe Search")
 	# Place block at the appropiate place
 	(block (g.getrect()[0]-11, g.getrect()[1]-10) + current).display("Single-Channel Recipe Search")
@@ -23,6 +23,8 @@ def dfs(depth, current):
 	g.step()
 	if g.getrect()[0] - bread > 100 or g.getrect()[1] - sinkship > 100:
 		return False # 
+	
+def dfs(depth, current):
 	if depth == 22:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
