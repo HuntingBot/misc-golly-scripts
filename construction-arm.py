@@ -23,8 +23,10 @@ def interesting(current):
 	g.step()
 	if g.getrect()[0] - bread > 100 or g.getrect()[1] - sinkship > 100:
 		return False # 
+	return true
 	
 def dfs(depth, current):
+	
 	if depth == 22:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
