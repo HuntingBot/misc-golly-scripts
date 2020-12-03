@@ -44,6 +44,6 @@ def dfs(depth, current, actual_depth):
 	if (interesg == False):
 		dfs(depth+1,v,actual_depth+1)
 # dfs(0, glider)
-dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!"))
+dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!",0))
 
 # I suspect p44 is a deadend
