@@ -34,7 +34,7 @@ def dfs(depth, current):
 		return True
 	if interesting(glider + current[44])：
 		dfs(depth+1, glider + current[44]) # Assume the next glider is present
-	else:
+# 	else:
 		dfs(depth+1, vacuum + current[44]) # Assume the next glider is absent
 # dfs(0, glider)
 dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!"))
