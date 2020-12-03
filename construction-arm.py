@@ -35,14 +35,14 @@ def dfs(depth, current, actual_depth):
 	interesg = interesting(glider + current[44])
 	interesv = interesting(vacuum + current[44])
 	if (interesg == False and interesv == False):
-		return
+		return False
 	if (interesv == True and interesg == True):
 		dfs(depth+1,g,actual_depth+1)
 		gfs(depth+1,v,actual_depth+1)
 	if (interesv == False):
-		dfs(depth+1,g,actual_depth)
+		dfs(depth+1,g,actual_depth+1)
 	if (interesg == False):
-		dfs(depth+1,v,actual_depth)
+		dfs(depth+1,v,actual_depth+1)
 # dfs(0, glider)
 dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!"))
 
