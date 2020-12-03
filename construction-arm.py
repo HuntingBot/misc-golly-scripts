@@ -19,6 +19,8 @@ def dfs(depth, current):
 		# Use g.empty not g.getpop
 		# Big speedup
 		return
+	g.setstep(5)
+	g.step()
 	if g.getrect()[0] - bread > 100 or g.getrect()[1] - sinkship > 100:
 		return # Sorry
 	if depth == 22:
