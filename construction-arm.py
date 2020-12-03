@@ -14,8 +14,7 @@ def dfs(depth, current):
 		return
 	bread = g.getrect()[0] # old block x coordinate
 	sinkship = g.getrect()[1] # old block y coordinate
-	g.setstep(5)
-	g.step()
+	g.run(44)
 	if g.empty():
 		# Use g.empty not g.getpop
 		# Big speedup
