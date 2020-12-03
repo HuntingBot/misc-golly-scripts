@@ -32,15 +32,17 @@ def dfs(depth, current, actual_depth):
 			g.reset()
 			g.save(bruh, "rle")
 		return True
-	if (glider + current[44] == False and vacuum + current[44] == False):
+	interesg = interesting(glider + current[44])
+	interesv = interesting(vacuum + current[44])
+	if (interesg == False and interesv == False):
 		return
-	if (vacuum + current[44] == True and glider + current[44] == True):
+	if (interesv == True and interesg == True):
 		dfs(depth+1,g,actual_depth+1)
 		gfs(depth+1,v,actual_depth+1)
-	if (vacuum + current[44] == False):
+	if (interesv == False):
 		dfs(depth+1,g,actual_depth)
-	if (glider + current[44] == False):
-		dfs(depth+1,g,actual_depth)
+	if (interesg == False):
+		dfs(depth+1,v,actual_depth)
 # dfs(0, glider)
 dfs(0, pattern("b2o$2o$2bo9$12b2o$11b2o$13bo9$23b2o$22b2o$24bo9$34b2o$33b2o$35bo!"))
 
