@@ -26,6 +26,8 @@ def interesting(current):
 	return True
 	
 def dfs(depth, current, actual_depth):
+	if actual_depth == 50:
+		return
 	if depth == 22:
 		if int(g.getpop()) == 4:
 			bruh = str(g.getrect()[0]-bread) + str(g.getrect()[1]-sinkship) + ".rle" # The offset
@@ -38,7 +40,7 @@ def dfs(depth, current, actual_depth):
 		return False
 	if (interesv == True and interesg == True):
 		dfs(depth+1,glider + current[44],actual_depth+1)
-		gfs(depth+1,vacuum + current[44],actual_depth+1)
+		dfs(depth+1,vacuum + current[44],actual_depth+1)
 	if (interesv == False):
 		dfs(depth+1,glider + current[44],actual_depth+1)
 	if (interesg == False):
