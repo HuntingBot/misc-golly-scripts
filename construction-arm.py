@@ -20,6 +20,10 @@ def interesting(current):
 		# Big speedup
 		return False
 	g.setstep(5)
+	if g.empty():
+		# Use g.empty not g.getpop
+		# Big speedup
+		return False
 	g.step()
 	if g.getrect()[0] - bread > 100 or g.getrect()[1] - sinkship > 100:
 		return False # 
