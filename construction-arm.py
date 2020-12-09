@@ -5,7 +5,11 @@ vacuum = pattern("")
 g.setalgo("HashLife")
 g.autoupdate(True)
 
+bread = 9999999999999999
+sinkship = 9999999999999999
+
 def interesting(current):
+	global bread, sinkship
 	current.display("Single-Channel Recipe Search")
 	# Place block at the appropiate place
 	(block (g.getrect()[0]-11, g.getrect()[1]-10) + current).display("Single-Channel Recipe Search")
@@ -30,6 +34,7 @@ def interesting(current):
 	return True
 	
 def dfs(depth, current, actual_depth):
+	global bread, sinkship
 	if actual_depth == 50:
 		return
 	if depth == 22:
